@@ -33,7 +33,7 @@ player get the better the result is.
 ### To do
 - [ ] Write tests that checks every rule using `unittest`
 - [ ] Write tests that covers every *key peg* feedback using `unittest`
-- [ ] Implement (hidden) code generator
+- [x] Implement (hidden) code generator
 - [ ] Implement codebraker's guessing board
 - [ ] Implement codemaker's feedback
 - [ ] Implement observer pattern
