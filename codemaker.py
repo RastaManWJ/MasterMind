@@ -1,8 +1,8 @@
 from random import randrange
 
-class AI:
+class Codemaker:
     def __init__(self):
-        self.code = [None, None, None, None]
+        self.code = [None]*4
 
     def draw_code(self):
         code = []
@@ -11,7 +11,7 @@ class AI:
         self.code = code
 
     def reset_code(self):
-        self.code = [None, None, None, None]
+        self.code = [None]*4
 
     def check_guess(self, guess):
         pass
