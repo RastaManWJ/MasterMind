@@ -18,9 +18,18 @@ class TestCodebreaker(unittest.TestCase):
         player.reset_points()
         self.assertEqual(player.points, 0)
 
-    def test_CodebreakerAttemptsToGuessTheCode(self):
+    def test_CodebreakerMakesFullCode(self):
         player = Codebreaker()
-        player.prepare_guess(0, 0, 0, 0)
-        self.assertEqual(player.guess, [0, 0, 0, 0])
-        player.prepare_guess(1, 5, 3, 2)
-        self.assertEqual(player.guess, [1, 5, 3, 2])
+        player.change_first_color(0)
+        player.change_second_color(1)
+        player.change_third_color(2)
+        player.change_fourth_color(3)
+        self.assertEqual(player.guess, [0, 1, 2, 3])
+        self.assertTrue(player.confirm_guess())
+
+    def test_CodebreakerMakesCondemnedCode(self):
+        player = Codebreaker()
+        player.change_third_color(0)
+        player.change_fourth_color(2)
+        self.assertEqual(player.guess, [None, None, 0, 2])
+        self.assertFalse(player.confirm_guess())

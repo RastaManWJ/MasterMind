@@ -9,5 +9,19 @@ class Codebreaker:
     def reset_points(self):
         self.points = 0
 
-    def prepare_guess(self, color0, color1, color2, color3):
-        self.guess = [color0, color1, color2, color3]
+    def change_first_color(self, color):
+        self.guess[0] = color
+
+    def change_second_color(self, color):
+        self.guess[1] = color
+
+    def change_third_color(self, color):
+        self.guess[2] = color
+
+    def change_fourth_color(self, color):
+        self.guess[3] = color
+
+    def confirm_guess(self):
+        if None in self.guess:
+            return False
+        return True

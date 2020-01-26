@@ -1,3 +1,7 @@
+from codebreaker import Codebreaker
+from codemaker import Codemaker
+
+
 class Game:
     def __init__(self, rows):
         self.rows = rows
@@ -20,5 +24,10 @@ class Game:
         self.winner = winner
 
     def run_game(self):
-        pass
+        codebreaker = Codebreaker()
+        codemaker = Codemaker()
+        codemaker.draw_code()
+        while self.finished or codemaker.codebreaker_wins_condition():
+            pass
+
 
