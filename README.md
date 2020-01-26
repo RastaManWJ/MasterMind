@@ -1,3 +1,5 @@
+In the process of making
+
 # MasterMind
 It's a code-breaker game, that intended to be a Player vs Player game, originally invented as a board game 
 in 1970 by Mordecai Meirowitz. As it's a virtual version of this game, the player that was responsible to 
