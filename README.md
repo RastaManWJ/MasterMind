@@ -1,4 +1,4 @@
-In the process of making
+#<p align="center">In the process of making</p>
 
 # MasterMind
 It's a code-breaker game, that intended to be a Player vs Player game, originally invented as a board game 
