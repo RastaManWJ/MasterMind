@@ -41,6 +41,21 @@ class TestCodemaker(unittest.TestCase):
         guess = [1, 4, 2, 3]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([2, 2, 1, 0], feedback)
+        self.assertEqual(3, ai.key_peg_amount)
+
+    def test_CodemakerProvidedFeedbackOfAllCorrectlyPlacedPegs(self):
+        ai = Codemaker()
+        ai.code = [0, 1, 2, 3]
+        guess = [0, 1, 2, 3]
+        feedback = ai.provide_feedback(guess)
+        self.assertEqual([2, 2, 2, 2], feedback)
+
+    def test_CodemakerProvidedFeedbackOfAllWrongPlacedColors(self):
+        ai = Codemaker()
+        ai.code = [0, 1, 2, 3]
+        guess = [3, 2, 1, 0]
+        feedback = ai.provide_feedback(guess)
+        self.assertEqual([1, 1, 1, 1], feedback)
 
     def test_FeedbackResets(self):
         ai = Codemaker()
