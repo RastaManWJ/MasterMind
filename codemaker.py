@@ -40,3 +40,7 @@ class Codemaker:
         guess = self.check_for_ideal_placement(guess)
         self.check_for_color_pairs(guess)
         return self.key_pegs
+
+    def reset_feedback_pegs(self):
+        self.key_pegs = [0]*4
+        self.key_peg_amount = 0
