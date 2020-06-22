@@ -1,64 +1,75 @@
 import unittest
 
-from codemaker import Codemaker
+from codemaker import CodeMaker
 
 
-class TestCodemaker(unittest.TestCase):
-    def test_CodemakerInit(self):
-        ai = Codemaker()
+class TestCodeMaker(unittest.TestCase):
+    """Class to check CodeMaker implementation."""
+    
+    def test_CodeMakerInit(self):
+        """Check if CodeMaker initialize with blank code."""
+        ai = CodeMaker()
         self.assertEqual(ai.code, [None]*4)
 
-    def test_CodemakerMadeAPatternOfFourCodePegs(self):
-        ai = Codemaker()
+    def test_CodeMakerMadeAPatternOfFourCodePegs(self):
+        """Check if CodeMaker makes code."""
+        ai = CodeMaker()
         self.assertEqual(ai.code, [None]*4)
         ai.draw_code()
         self.assertNotEqual(ai.code, [None]*4)
 
-    def test_CodemakerProvidedFeedbackOfAllWrongPegs(self):
-        ai = Codemaker()
+    def test_CodeMakerProvidedFeedbackOfAllWrongPegs(self):
+        """Check if CodeMaker provides feedback of whole wrong guess."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [4, 4, 4, 4]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([0, 0, 0, 0], feedback)
 
-    def test_CodemakerProvidedFeedbackOfTwoCorrectIdealPlacements(self):
-        ai = Codemaker()
+    def test_CodeMakerProvidedFeedbackOfTwoCorrectIdealPlacements(self):
+        """Check if CodeMaker provides feedback of 2 correct pegs."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [0, 1, 4, 4]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([2, 2, 0, 0], feedback)
 
-    def test_CodemakerProvidedFeedbackOfTwoMatchingButWrongPlacedColors(self):
-        ai = Codemaker()
+    def test_CodeMakerProvidedFeedbackOfTwoMatchingButWrongPlacedColors(self):
+        """Check if CodeMaker provides feedback of 2 correct pegs in wrong place."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [1, 0, 4, 4]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([1, 1, 0, 0], feedback)
 
-    def test_CodemakerProvidedFeedbackOfTwoCorrectAndOneWrongPlacedColors(self):
-        ai = Codemaker()
+    def test_CodeMakerProvidedFeedbackOfTwoCorrectAndOneWrongPlacedColors(self):
+        """Check if CodeMaker provides feedback of various combination of correct pegs."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [1, 4, 2, 3]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([2, 2, 1, 0], feedback)
         self.assertEqual(3, ai.key_peg_amount)
 
-    def test_CodemakerProvidedFeedbackOfAllCorrectlyPlacedPegs(self):
-        ai = Codemaker()
+    def test_CodeMakerProvidedFeedbackOfAllCorrectlyPlacedPegs(self):
+        """Check if CodeMaker provides feedback of all pegs in the correct place."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [0, 1, 2, 3]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([2, 2, 2, 2], feedback)
 
-    def test_CodemakerProvidedFeedbackOfAllWrongPlacedColors(self):
-        ai = Codemaker()
+    def test_CodeMakerProvidedFeedbackOfAllWrongPlacedColors(self):
+        """Check if CodeMaker provides feedback of all pegs in wrong place."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [3, 2, 1, 0]
         feedback = ai.provide_feedback(guess)
         self.assertEqual([1, 1, 1, 1], feedback)
 
     def test_FeedbackResets(self):
-        ai = Codemaker()
+        """"Check if feedback can be reset."""
+        ai = CodeMaker()
         ai.code = [0, 1, 2, 3]
         guess = [1, 4, 2, 3]
         feedback = ai.provide_feedback(guess)

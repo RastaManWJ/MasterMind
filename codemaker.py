@@ -1,6 +1,9 @@
 from random import randrange
 
-class Codemaker:
+
+class CodeMaker:
+    """Implementation of AI logic."""
+
     def __init__(self):
         self.code = [None]*4
         self.key_pegs = [0]*4

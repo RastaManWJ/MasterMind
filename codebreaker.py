@@ -1,4 +1,6 @@
-class Codebreaker:
+class CodeBreaker:
+    """Implementation of player logic"""
+
     def __init__(self):
         self.points = 0
         self.guess = [None, None, None, None]
