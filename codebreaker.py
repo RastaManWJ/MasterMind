@@ -5,6 +5,9 @@ class CodeBreaker:
         self.points = 0
         self.guess = [None, None, None, None]
 
+    def get_guess(self):
+        return self.guess
+
     def add_point(self):
         self.points += 1
 
