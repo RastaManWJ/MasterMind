@@ -1,5 +1,5 @@
-from codebreaker import Codebreaker
-from codemaker import Codemaker
+from codebreaker import CodeBreaker
+from codemaker import CodeMaker
 
 
 class Game:
@@ -18,14 +18,14 @@ class Game:
             self.current_row += 1
         else:
             self.finished = True
-            self.game_ends('Codemaker')
+            self.game_ends('CodeMaker')
 
     def game_ends(self, winner):
         self.winner = winner
 
     def run_game(self):
-        codebreaker = Codebreaker()
-        codemaker = Codemaker()
+        codebreaker = CodeBreaker()
+        codemaker = CodeMaker()
         codemaker.draw_code()
         while self.finished or codemaker.codebreaker_wins_condition():
             pass
